@@ -3318,6 +3318,8 @@ def l1_loss(
 
     See :class:`~torch.nn.L1Loss` for details.
     """
+    if reduction == 'sum':
+        raise ValueError("Reduction mode sum is not supported.")
     if has_torch_function_variadic(input, target):
         return handle_torch_function(
             l1_loss, (input, target), input, target, size_average=size_average, reduce=reduce, reduction=reduction
@@ -3849,7 +3851,7 @@ def interpolate(  # noqa: F811
     mode: str = "nearest",
     align_corners: Optional[bool] = None,
     recompute_scale_factor: Optional[bool] = None,
-    antialias: bool = False,
+    antialias: bool = True,
 ) -> Tensor:  # noqa: F811
     pass
 
