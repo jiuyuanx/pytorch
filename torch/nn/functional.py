@@ -3849,7 +3849,7 @@ def interpolate(  # noqa: F811
     mode: str = "nearest",
     align_corners: Optional[bool] = None,
     recompute_scale_factor: Optional[bool] = None,
-    antialias: bool = False,
+    antialias: bool = True,
 ) -> Tensor:  # noqa: F811
     pass
 
